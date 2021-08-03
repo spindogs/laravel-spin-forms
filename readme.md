@@ -8,8 +8,14 @@
 
 Via Composer
 
-``` bash
+```bash
 $ composer require spindogs/laravel-spin-forms
+```
+
+Upon install/update, it is recommended to clear the view cache
+
+```bash
+php artisan view:clear
 ```
 
 ## Components
@@ -92,6 +98,7 @@ Submit Form
 Options
 
 * __name__ - _string_ - Name of input (required)
+* __id__ - _string_ - ID of input, if not given, randomly generated (defaults to __null__)
 * __label__ - _string_ - Label for input (defaults to __''__)
 * __type__ - _string_ - Any applicable types available for input, although not recomended for checkbox/radio (defaults to _text_)
 * __default__ - _string_ - This is the starting value of the element on the page (defaults to __null__)
@@ -109,7 +116,8 @@ Also takes all attributes and merges across, like min, max, step etc.
 
 Options
 
-* __name__ - _string_ - Name of input (required)
+* __name__ - _string_ - Name of textarea (required)
+* __id__ - _string_ - ID of textarea, if not given, randomly generated (defaults to __null__)
 * __label__ - _string_ - Label for textarea (defaults to __''__)
 * __default__ - _string_ - This is the starting value of the element on the page (defaults to __null__)
 * __required__ - _boolean_ - Adds asterisk next to label, and required tag to input (defaults to false)
@@ -153,7 +161,8 @@ Options
 
 Options
 
-* __name__ - _string_ - Name of input (required)
+* __name__ - _string_ - Name of select (required)
+* __id__ - _string_ - ID of select, if not given, randomly generated (defaults to __null__)
 * __label__ - _string_ - Label for the select (defaults to __''__)
 * __options__ - _array_ - Key => Array (name, image rows) array of options for each select. (defaults to __[]__)
 * __default__ - _string/array_ - List of keys / single key for default selection on page view. (defaults to __null__)
@@ -169,8 +178,8 @@ Currently does not work with optgroup.
 Example of $options and $selected
 ```php
 $options = [
-    'arsenal' => ['name' => 'Arsenal', 'image' => '/images/badge/arsenal.png']
-    'liverpool' => ['name' => 'Liverpool', 'image' => '/images/badge/liverpool.png']
+    'arsenal' => ['name' => 'Arsenal', 'image' => '/images/badge/arsenal.png'],
+    'liverpool' => ['name' => 'Liverpool', 'image' => '/images/badge/liverpool.png'],
     'newcastle' => ['name' => 'Newcastle', 'image' => '/images/badge/newcastle.png']
 ];
 
@@ -196,6 +205,7 @@ $selected_multiple = ['arsenal', 'liverpool'];
 Options
 
 * __name__ - _string_ - Name of input (required)
+* __id__ - _string_ - ID of input, if not given, randomly generated (defaults to __null__)
 * __label__ - _string_ - Label for input (defaults to __''__)
 * __default__ - _string/array_ - This is the starting value of the element on the page. Must be in format Y-m-d, otherwise will not render the default date (defaults to __null__)
 * __required__ - _boolean_ - Adds asterisk next to title (defaults to __false__)
@@ -210,6 +220,7 @@ Options
 Options
 
 * __name__ - _string_ - Name of input (required)
+* __id__ - _string_ - ID of input, if not given, randomly generated (defaults to __null__)
 * __label__ - _string_ - Label for input (defaults to __''__)
 * __default__ - _string/array_ - This is the starting value of the element on the page. Must be in format Y-m-d H:i, otherwise will not render the default date/time (defaults to __null__)
 * __required__ - _boolean_ - Adds asterisk next to title (defaults to __false__)
@@ -224,6 +235,7 @@ Options
 Options
 
 * __name__ - _string_ - Name of input (required)
+* __id__ - _string_ - ID of input, if not given, randomly generated (defaults to __null__)
 * __label__ - _string_ - Label for input (defaults to __''__)
 * __default__ - _string/array_ - This is the starting value of the element on the page. Must be in format H:i, otherwise will not render the default time. Regex to verify (defaults to __null__)
 * __required__ - _boolean_ - Adds asterisk next to title (defaults to __false__)

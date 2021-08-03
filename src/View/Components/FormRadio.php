@@ -10,7 +10,7 @@ class FormRadio extends FormElement
     public $selected;
     public $show_error;
     public $title;
-    
+
     public function __construct(
         string $name,
         array $options = [],

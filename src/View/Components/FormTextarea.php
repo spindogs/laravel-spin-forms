@@ -12,13 +12,15 @@ class FormTextarea extends FormElement
 
     public function __construct(
         string $name,
+        string $id = null,
         string $label = '',
         $default = null,
         bool $required = false,
         bool $showError = true
     ) {
         $this->name         = $name;
-        $this->label        = $label ?? $name;
+        $this->id           = $id;
+        $this->label        = $label;
         $this->required     = $required;
         $this->show_error   = $showError;
 

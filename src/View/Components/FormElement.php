@@ -35,7 +35,7 @@ abstract class FormElement extends Component
         // With Form Element, we need to see if the individual element has an error
         if (session()->has('errors')) {
             $error_bag = session('errors')->getBag('default');
-            
+
              // Error for multiple are reliant on there being a valid key.
              // Of Form Element name ends in [], we check to see if there is an error associated with the name.
              // This will cause all elements with the same name being highlighted, and mean that error messages won't

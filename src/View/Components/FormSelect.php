@@ -22,6 +22,7 @@ class FormSelect extends FormElement
 
     public function __construct(
         string $name,
+        string $id = null,
         string $label = '',
         array $options = [],
         $default = null,
@@ -33,6 +34,7 @@ class FormSelect extends FormElement
         $placeholder = null
     ) {
         $this->name         = $name;
+        $this->id           = $id;
         $this->label        = $label ?? $name;
         $this->images       = $images;
         $this->required     = $required;
