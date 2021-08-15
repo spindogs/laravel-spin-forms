@@ -1,4 +1,6 @@
-<div class="field_wrap __textarea">
+@if ($field_wrap)
+    <x-form-wrap field-identifier="__textarea">
+@endif
 
     <x-form-label label="{{ $label }}" :required="$required" for="{{ $id() }}" class="{{ $hasError() ? 'error' : '' }}" />
 
@@ -12,9 +14,11 @@
             >{!! $value !!}</textarea>
 
     </div>
-    
+
     @if ($showError())
         <x-form-error name="{{ $name }}" />
     @endif
 
-</div>
+@if ($field_wrap)
+    </x-form-wrap>
+@endif

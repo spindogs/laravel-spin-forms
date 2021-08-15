@@ -6,6 +6,14 @@ return [
             'view'  => 'spin-forms::components.form',
             'class' => \Spindogs\LaravelSpinForms\View\Components\Form::class
         ],
+        'form-wrap' => [
+            'view'  => 'spin-forms::components.form-wrap',
+            'class' => \Spindogs\LaravelSpinForms\View\Components\FormWrap::class
+        ],
+        'form-group' => [
+            'view'  => 'spin-forms::components.form-group',
+            'class' => \Spindogs\LaravelSpinForms\View\Components\FormGroup::class
+        ],
         'form-error' => [
             'view'  => 'spin-forms::components.form-error',
             'class' => \Spindogs\LaravelSpinForms\View\Components\FormError::class

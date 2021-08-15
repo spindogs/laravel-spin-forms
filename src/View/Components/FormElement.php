@@ -8,6 +8,7 @@ use Illuminate\View\Component;
 abstract class FormElement extends Component
 {
     public $id = null;
+    public $value = null;
 
     /**
      * Get the view / contents that represent the component.
@@ -24,10 +25,17 @@ abstract class FormElement extends Component
     public function id()
     {
         if (!$this->id) {
-            $this->id = uniqid();
+            $this->id = 'auto_' . uniqid();
         }
 
         return $this->id;
+    }
+
+    public function setValue($input_name, $default_value)
+    {
+        $input_name = $this->convertInputNameToKey($input_name);
+
+        $this->value = old($input_name, $default_value);
     }
 
     public function hasError()
@@ -40,7 +48,7 @@ abstract class FormElement extends Component
              // Of Form Element name ends in [], we check to see if there is an error associated with the name.
              // This will cause all elements with the same name being highlighted, and mean that error messages won't
              // be applied correctly. Need to ensure that we have keys in place
-            $error_name = str_replace(['[', ']'], ['.', ''], Str::before($this->name, '[]'));
+            $error_name = $this->convertInputNameToKey(Str::before($this->name, '[]'));
 
             // Check to see if name or name child has error
             if ($error_bag && ($error_bag->has($error_name) || $error_bag->has($error_name . '.*'))) {
@@ -49,6 +57,11 @@ abstract class FormElement extends Component
         }
 
         return false;
+    }
+
+    public function convertInputNameToKey($input_name)
+    {
+        return str_replace(['[', ']'], ['.', ''], $input_name);
     }
 
     public function showError()

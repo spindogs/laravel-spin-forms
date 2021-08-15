@@ -6,19 +6,20 @@ use Carbon\Carbon;
 
 class FormDateTimePicker extends FormElement
 {
+    public $field_wrap;
     public $label;
     public $name;
     public $required;
     public $show_error;
     public $type;
-    public $value;
 
     public function __construct(
         string $name,
         string $id = null,
-        string $label = '',
-        $default = null,
+        string $label = null,
+        $value = null,
         bool $required = false,
+        bool $fieldWrap = true,
         bool $showError = true
     ) {
         $this->name         = $name;
@@ -26,16 +27,17 @@ class FormDateTimePicker extends FormElement
         $this->label        = $label;
         $this->required     = $required;
         $this->show_error   = $showError;
+        $this->field_wrap   = $fieldWrap;
 
-        if ($default) {
+        if ($value) {
             try {
-                $carbon = Carbon::createFromFormat('Y-m-d H:i', $default, 'Europe/London');
-                $default = $carbon->format('Y-m-d H:i');
+                $carbon = Carbon::createFromFormat('Y-m-d H:i', $value, 'Europe/London');
+                $value = $carbon->format('Y-m-d H:i');
             } catch (\Exception $e) {
-                $default = null;
+                $value = null;
             }
         }
 
-        $this->value = old($name, $default);
+        $this->setValue($name, $value);
     }
 }

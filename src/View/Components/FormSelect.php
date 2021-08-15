@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 
 class FormSelect extends FormElement
 {
+    public $field_wrap;
     public $images;
     public $js_callback;
     public $js_options;
@@ -23,10 +24,11 @@ class FormSelect extends FormElement
     public function __construct(
         string $name,
         string $id = null,
-        string $label = '',
+        string $label = null,
         array $options = [],
-        $default = null,
+        $selected = null,
         bool $required = false,
+        bool $fieldWrap = true,
         bool $multiple = false,
         bool $images = false,
         bool $search = true,
@@ -41,6 +43,7 @@ class FormSelect extends FormElement
         $this->multiple     = $multiple;
         $this->placeholder  = $placeholder;
         $this->show_error   = $showError;
+        $this->field_wrap   = $fieldWrap;
 
         // Create the array to send to View for key, name, image
         $this->options = [];
@@ -95,8 +98,13 @@ class FormSelect extends FormElement
             $this->js_options[] = 'templateSelection: ID_' . $this->id() . 'WithImage';
         }
 
-        $_name = Str::before($name, '[]');
-        $this->selected = old($_name, $default);
+        $_name = $this->convertInputNameToKey(Str::before($this->name, '[]'));
+
+        if ($old_data = old($this->convertInputNameToKey($_name))) {
+            $this->selected = Arr::wrap($old_data);
+        } else {
+            $this->selected = Arr::wrap($selected);
+        }
     }
 
     public function isSelected($key)

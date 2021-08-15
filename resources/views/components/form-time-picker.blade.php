@@ -1,4 +1,6 @@
-<div class="field_wrap __timepicker">
+@if ($field_wrap)
+    <x-form-wrap field-identifier="__timepicker">
+@endif
 
     <x-form-label label="{{ $label }}" :required="$required" for="{{ $id() }}" class="{{ $hasError() ? 'error' : '' }}" />
 
@@ -27,7 +29,9 @@
         <x-form-error name="{{ $name }}" />
     @endif
 
-</div>
+@if ($field_wrap)
+    </x-form-wrap>
+@endif
 
 @push('scripts')
 <script type="text/javascript">

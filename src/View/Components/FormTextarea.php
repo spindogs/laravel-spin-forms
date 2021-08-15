@@ -4,18 +4,19 @@ namespace Spindogs\LaravelSpinForms\View\Components;
 
 class FormTextarea extends FormElement
 {
+    public $field_wrap;
     public $label;
     public $name;
     public $required;
     public $show_error;
-    public $value;
 
     public function __construct(
         string $name,
         string $id = null,
-        string $label = '',
-        $default = null,
+        string $label = null,
+        $value = null,
         bool $required = false,
+        bool $fieldWrap = true,
         bool $showError = true
     ) {
         $this->name         = $name;
@@ -23,7 +24,8 @@ class FormTextarea extends FormElement
         $this->label        = $label;
         $this->required     = $required;
         $this->show_error   = $showError;
+        $this->field_wrap   = $fieldWrap;
 
-        $this->value        = old($name, $default);
+        $this->setValue($name, $value);
     }
 }

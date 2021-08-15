@@ -6,10 +6,12 @@
         value="{{ $value }}"
     />
 @else
-    <div class="field_wrap __{{ $type }}">
+    @if ($field_wrap)
+        <x-form-wrap field-identifier="__{{ $type }}">
+    @endif
 
         <x-form-label label="{{ $label }}" :required="$required" for="{{ $id() }}" class="{{ $hasError() ? 'error' : '' }}" />
-    
+
         <div class="input_wrap">
 
             <input
@@ -22,10 +24,12 @@
             />
 
         </div>
-    
+
         @if ($showError())
             <x-form-error name="{{ $name }}" />
         @endif
 
-    </div>
+    @if ($field_wrap)
+        </x-form-wrap>
+    @endif
 @endif

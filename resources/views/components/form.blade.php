@@ -3,7 +3,7 @@
     {!! $files ? 'enctype="multipart/form-data"' : '' !!}
     {!! $attributes->merge() !!}
     >
-    
+
     @if (!in_array($method, ['HEAD', 'GET', 'OPTIONS']))
         @csrf
     @endif
@@ -12,6 +12,6 @@
         @method($method)
     @endif
 
-    {{ $slot }}
+    {!! $slot !!}
 
 </form>

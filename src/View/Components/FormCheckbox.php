@@ -7,41 +7,39 @@ use Illuminate\Support\Str;
 
 class FormCheckbox extends FormElement
 {
+    public $field_wrap;
+    public $label;
     public $name;
-    public $options;
     public $required;
-    public $selected;
     public $show_error;
-    public $title;
+    public $selected;
 
     public function __construct(
         string $name,
-        array $options = [],
-        $title = '',
-        $default = null,
+        string $id = null,
+        string $label = null,
+        $value = 1,
+        bool $selected = false,
         bool $required = false,
-        bool $showError = true
+        bool $fieldWrap = true,
+        bool $showError = false
     ) {
         $this->name         = $name;
-        $this->options      = $options;
+        $this->id           = $id;
+        $this->label        = $label ?? '&nbsp;';
+        $this->value        = $value;
         $this->required     = $required;
-        $this->selected     = [];
         $this->show_error   = $showError;
-        $this->title        = $title;
+        $this->field_wrap   = $fieldWrap;
 
-        $_name = Str::before($name, '[]');
+        $_name = $this->convertInputNameToKey(Str::before($this->name, '[]'));
 
-        if (old($_name)) {
-            $this->selected = old($_name);
+        if ($old_data = old($this->convertInputNameToKey($_name))) {
+            $this->selected = in_array($value, Arr::wrap($old_data));
         }
 
         if (!session()->hasOldInput()) {
-            $this->selected = $default;
+            $this->selected = $selected;
         }
-    }
-
-    public function isSelected($key)
-    {
-        return (in_array($key, Arr::wrap($this->selected)));
     }
 }

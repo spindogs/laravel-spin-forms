@@ -4,31 +4,34 @@ namespace Spindogs\LaravelSpinForms\View\Components;
 
 class FormRadio extends FormElement
 {
+    public $field_wrap;
+    public $label;
     public $name;
-    public $options;
-    public $required;
     public $selected;
     public $show_error;
-    public $title;
 
     public function __construct(
         string $name,
-        array $options = [],
-        $title = '',
-        $default = null,
-        bool $required = false,
-        bool $showError = true
+        string $id = null,
+        string $label = null,
+        $value = null,
+        bool $selected = false,
+        bool $fieldWrap = true,
+        bool $showError = false
     ) {
         $this->name         = $name;
-        $this->options      = $options;
-        $this->required     = $required;
+        $this->id           = $id;
+        $this->label        = $label ?? '&nbsp;';
+        $this->value        = $value;
         $this->show_error   = $showError;
-        $this->selected     = old($name, $default);
-        $this->title        = $title;
-    }
+        $this->field_wrap   = $fieldWrap;
 
-    public function isSelected($key)
-    {
-        return $key == $this->selected;
+        if (old($name)) {
+            $this->selected = (old($name) == $value);
+        }
+
+        if (!session()->hasOldInput()) {
+            $this->selected = $selected;
+        }
     }
 }
