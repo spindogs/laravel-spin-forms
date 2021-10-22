@@ -2,6 +2,8 @@
 
 namespace Spindogs\LaravelSpinForms\View\Components;
 
+use Illuminate\Support\Str;
+
 class FormRadio extends FormElement
 {
     public $field_wrap;
@@ -26,8 +28,10 @@ class FormRadio extends FormElement
         $this->show_error   = $showError;
         $this->field_wrap   = $fieldWrap;
 
-        if (old($name)) {
-            $this->selected = (old($name) == $value);
+        $_name = $this->convertInputNameToKey(Str::before($this->name, '[]'));
+
+        if (old($this->convertInputNameToKey($_name))) {
+            $this->selected = (old($_name) == $value);
         }
 
         if (!session()->hasOldInput()) {
