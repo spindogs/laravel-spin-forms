@@ -31,7 +31,7 @@ class FormSelect extends FormElement
         bool $fieldWrap = true,
         bool $multiple = false,
         bool $images = false,
-        bool $search = true,
+        bool $search = false,
         bool $showError = true,
         $placeholder = null
     ) {
@@ -86,8 +86,9 @@ class FormSelect extends FormElement
             $this->js_options[] = 'multiple: true';
         }
 
-        if (!$search) {
-            $this->type[] = '__nosearch';
+        if ($search) {
+            $this->type[] = '__selectwithsearch';
+        } else {
             $this->js_options[] = 'minimumResultsForSearch: Infinity';
         }
 
