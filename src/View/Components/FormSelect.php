@@ -37,7 +37,7 @@ class FormSelect extends FormElement
     ) {
         $this->name         = $name;
         $this->id           = $id;
-        $this->label        = $label ?? $name;
+        $this->label        = $label;
         $this->images       = $images;
         $this->required     = $required;
         $this->multiple     = $multiple;
