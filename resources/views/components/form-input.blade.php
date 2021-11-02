@@ -20,6 +20,7 @@
                 name="{{ $name }}"
                 value="{{ $value }}"
                 {{ $required ? 'required' : '' }}
+                {{ $readonly ? 'readonly' : '' }}
                 {!! $attributes->merge(['class' => $hasError() ? 'error' : '']) !!}
             />
 

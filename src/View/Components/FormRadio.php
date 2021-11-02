@@ -10,6 +10,7 @@ class FormRadio extends FormElement
     public $label;
     public $name;
     public $selected;
+    public $readonly;
     public $show_error;
 
     public function __construct(
@@ -18,6 +19,7 @@ class FormRadio extends FormElement
         string $label = null,
         $value = null,
         bool $selected = false,
+        bool $readonly = false,
         bool $fieldWrap = true,
         bool $showError = false
     ) {
@@ -25,6 +27,7 @@ class FormRadio extends FormElement
         $this->id           = $id;
         $this->label        = $label ?? '&nbsp;';
         $this->value        = $value;
+        $this->readonly     = $readonly;
         $this->show_error   = $showError;
         $this->field_wrap   = $fieldWrap;
 

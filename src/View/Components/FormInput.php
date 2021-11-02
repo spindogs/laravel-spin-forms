@@ -8,6 +8,7 @@ class FormInput extends FormElement
     public $label;
     public $name;
     public $required;
+    public $readonly;
     public $show_error;
     public $type;
 
@@ -18,6 +19,7 @@ class FormInput extends FormElement
         string $type = 'text',
         $value = null,
         bool $required = false,
+        bool $readonly = false,
         bool $fieldWrap = true,
         bool $showError = true
     ) {
@@ -26,6 +28,7 @@ class FormInput extends FormElement
         $this->label        = $label;
         $this->type         = $type;
         $this->required     = $required;
+        $this->readonly     = $readonly;
         $this->show_error   = $showError;
         $this->field_wrap   = $fieldWrap;
 

@@ -8,6 +8,7 @@ class FormTextarea extends FormElement
     public $label;
     public $name;
     public $required;
+    public $readonly;
     public $show_error;
 
     public function __construct(
@@ -16,6 +17,7 @@ class FormTextarea extends FormElement
         string $label = null,
         $value = null,
         bool $required = false,
+        bool $readonly = false,
         bool $fieldWrap = true,
         bool $showError = true
     ) {
@@ -23,6 +25,7 @@ class FormTextarea extends FormElement
         $this->id           = $id;
         $this->label        = $label;
         $this->required     = $required;
+        $this->readonly     = $readonly;
         $this->show_error   = $showError;
         $this->field_wrap   = $fieldWrap;
 

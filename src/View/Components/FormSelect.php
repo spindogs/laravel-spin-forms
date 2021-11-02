@@ -17,6 +17,7 @@ class FormSelect extends FormElement
     public $options;
     public $placeholder;
     public $required;
+    public $readonly;
     public $selected;
     public $show_error;
     public $type;
@@ -28,6 +29,7 @@ class FormSelect extends FormElement
         array $options = [],
         $selected = null,
         bool $required = false,
+        bool $readonly = false,
         bool $fieldWrap = true,
         bool $multiple = false,
         bool $images = false,
@@ -40,6 +42,7 @@ class FormSelect extends FormElement
         $this->label        = $label;
         $this->images       = $images;
         $this->required     = $required;
+        $this->readonly     = $readonly;
         $this->multiple     = $multiple;
         $this->placeholder  = $placeholder;
         $this->show_error   = $showError;

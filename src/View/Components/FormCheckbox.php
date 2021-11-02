@@ -11,6 +11,7 @@ class FormCheckbox extends FormElement
     public $label;
     public $name;
     public $required;
+    public $readonly;
     public $show_error;
     public $selected;
 
@@ -21,6 +22,7 @@ class FormCheckbox extends FormElement
         $value = 1,
         bool $selected = false,
         bool $required = false,
+        bool $readonly = false,
         bool $fieldWrap = true,
         bool $showError = false
     ) {
@@ -29,6 +31,7 @@ class FormCheckbox extends FormElement
         $this->label        = $label ?? '&nbsp;';
         $this->value        = $value;
         $this->required     = $required;
+        $this->readonly     = $readonly;
         $this->show_error   = $showError;
         $this->field_wrap   = $fieldWrap;
 

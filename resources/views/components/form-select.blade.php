@@ -9,6 +9,7 @@
             id="{{ $id() }}"
             name="{{ $name }}"
             {{ $required ? 'required' : '' }}
+            {{ $readonly ? 'readonly' : '' }}
             {{ $multiple ? 'multiple' : '' }}
             {!! $attributes->merge(['class' => $hasError() ? 'error' : '']) !!}
         >

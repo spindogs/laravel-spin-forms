@@ -10,6 +10,7 @@
             id="{{ $id() }}"
             name="{{ $name }}"
             {{ $required ? 'required' : '' }}
+            {{ $readonly ? 'readonly' : '' }}
             {!! $attributes->merge(['class' => $hasError() ? 'error' : '']) !!}
             >{!! $value !!}</textarea>
 
