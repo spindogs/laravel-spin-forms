@@ -143,6 +143,7 @@ Options
 * __type__ - _string_ - Any applicable types available for input, although not recomended for checkbox/radio (Default:  _text_)
 * __value__ - _string_ - This is the default value of the element on the page (Default: _null_)
 * __required__ - _boolean_ - Adds asterisk next to label, and required tag to input (Default: _false_)
+* __readonly__ - _boolean_ - Adds readonly attribute to input (Default:  _false_)
 * __field-wrap__ - _boolean_ - Wraps the input inside the field wrap div/class (Default: _true_)
 * __show-error__ - _boolean_ - Defines whether or not to display error text under element (Default: _true_)
 
@@ -162,6 +163,7 @@ Options
 * __label__ - _string_ - Label for textarea (Default: _null_)
 * __value__ - _string_ - This is the default value of the element on the page (Default: _null_)
 * __required__ - _boolean_ - Adds asterisk next to label, and required tag to input (Default: _false_)
+* __readonly__ - _boolean_ - Adds readonly attribute to input (Default:  _false_)
 * __field-wrap__ - _boolean_ - Wraps the input inside the field wrap div/class (Default: _true_)
 * __show-error__ - _boolean_ - Defines whether or not to display error text under element (Default: _true_)
 
@@ -181,6 +183,7 @@ Options
 * __value__ - _string_ - Value for this checkbox to when selected (Default: _1_)
 * __selected__ - _boolean_ - Denotes whether the checkbox should be checked as default (Default: _false_)
 * __required__ - _boolean_ - Adds asterisk next to label (Default: _false_)
+* __readonly__ - _boolean_ - Adds readonly attribute to input (Default:  _false_)
 * __field-wrap__ - _boolean_ - Wraps the input inside the field wrap div/class (Default: _true_)
 * __show-error__ - _boolean_ - Defines whether or not to display error text under element (Default: _false_)
 
@@ -208,6 +211,7 @@ Options
 * __label__ - _string_ - Label for checkbox, if left as null, this is represented by a &amp;nbsp; (Default: _null_)
 * __value__ - _string_ - Value for this checkbox to when selected (Default: _null_)
 * __selected__ - _boolean_ - Denotes whether the checkbox should be checked as default (Default: _false_)
+* __readonly__ - _boolean_ - Adds readonly attribute to input (Default:  _false_)
 * __field-wrap__ - _boolean_ - Wraps the input inside the field wrap div/class (Default: _true_)
 * __show-error__ - _boolean_ - Defines whether or not to display error text under element (Default: _false_)
 
@@ -232,6 +236,7 @@ Options
 * __options__ - _array_ - Key => Array [name, image] array of options for each select. (Default: _[]_)
 * __selected__ - _string/array_ - List of keys / single key for default selection on page view. (Default: _null_)
 * __required__ - _boolean_ - Adds asterisk next to title (Default: _false_)
+* __readonly__ - _boolean_ - Adds readonly attribute to input (Default:  _false_)
 * __field-wrap__ - _boolean_ - Wraps the input inside the field wrap div/class (Default: _true_)
 * __multiple__ - _boolean_ - Allow multiple selection (Default: _false_)
 * __images__ - _boolean_ - Adds images to each option, must be in array to work correctly (Default: _false_)
