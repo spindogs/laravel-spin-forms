@@ -41,6 +41,7 @@ Some components require additional javascript to be used in conjunction with the
 * Date Picker
 * Time Picker
 * Date/Time Picker
+* Help
 
 ## Modification
 
@@ -342,6 +343,20 @@ Options
 <x-form-time-picker label="Time Picker" name="time-picker" value="12:34" />
 ```
 
+### Help
+
+You can also add help text, beofre and/or after the input elemtn with the use of the slots `pre_help` and `post_help`
+
+```blade
+<x-form-input type="text" id="adam" name="text-input">
+    @slot('pre_help')
+        Some help text before the form element
+    @endslot
+    @slot('post_help')
+        Some help text after the form element
+    @endslot
+</x-form-input>
+```
 ## Change log
 
 Please see the [changelog](changelog.md) for more information on what has changed recently.
