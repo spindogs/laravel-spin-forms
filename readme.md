@@ -12,7 +12,7 @@ Via Composer
 $ composer require spindogs/laravel-spin-forms
 ```
 
-Upon install/update, it is recommended to clear the view cache. If there are new components in here, then they will need to either be manually copied over from the spin-forms.php config file, or republish the service provider with teh --force flag.
+Upon install/update, it is recommended to clear the view cache. If there are new components in here, then they will need to either be manually copied over from the spin-forms.php config file, or republish the service provider with the --force flag. _NB: using the --force command will overwrite your config file, so if you have any custom controllers or views, plase change them again_
 
 ```bash
 php artisan view:clear
@@ -28,7 +28,8 @@ Some components require additional javascript to be used in conjunction with the
 
 * Form
 * Form Wrap
-* Form Group
+* Form Fieldset
+* _Form Group (Deprecated)_
 * Error List
 * Button
 * Label
@@ -116,7 +117,28 @@ This is utilised by all elements as a div wrapper around all of the form element
 </x-form-wrap>
 ```
 
-### Form Group
+### Form Fieldset
+
+This element is used to house checkboxes / radio buttons. Fieldset should be used over Group for accessibility. But we are not removing Group for backwards compatability. These elements are identical except for: HTML output, Title is required.
+
+Options
+
+* __name__ - _string_ - Name of inputs to be displayed inside the group, this is needed to correctly style the error (__required__)
+* __type__ - _string_ - Either __checkbox__, or __radio__, needed to correctly generate the field identifier of the Form Wrap component. (__required__)
+* __title__ - _string_ - Title for group of elements in the group (__required__)
+* __required__ - _boolean_ - Adds asterisk next to title (Default:  _false_)
+* __show-error__ - _boolean_ - Defines whether or not to display error text under element (Default: _false_)
+
+```blade
+<x-form-fieldset name="some-name-for-input" type="radio" title="This is the title of the elements" :required="true">
+    ...
+</x-form-fieldset>
+```
+
+
+### Form Group (Deprecated)
+
+This element is deprecated, but will still be available for backwards compataibility. This is almost identical to Form Fieldset.
 
 Options
 

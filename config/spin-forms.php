@@ -14,6 +14,10 @@ return [
             'view'  => 'spin-forms::components.form-group',
             'class' => \Spindogs\LaravelSpinForms\View\Components\FormGroup::class
         ],
+        'form-fieldset' => [
+            'view'  => 'spin-forms::components.form-fieldset',
+            'class' => \Spindogs\LaravelSpinForms\View\Components\FormFieldset::class
+        ],
         'form-error' => [
             'view'  => 'spin-forms::components.form-error',
             'class' => \Spindogs\LaravelSpinForms\View\Components\FormError::class
