@@ -3,6 +3,11 @@
 All notable changes to `LaravelSpinForms` will be documented in this file.
 
 ## 2.2.0 - 2022-02-21
+- Added in the ability to have both pre/post input help text
+- Added the fieldset block (deprecated form group)
+- Added in $attributes->merge for radio/checkbox
+- Updated readme with new blocks and debug information
+
 ## 2.1.3 - 2021-11-02
 - Added readonly information to readme.me
 
