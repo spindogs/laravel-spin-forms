@@ -99,9 +99,9 @@ Options
 This takes a slot as the entry for the button content.
 
 ```blade
-<x-button type="submit">
+<x-form-button type="submit">
 Submit Form
-</x-button>
+</x-form-button>
 ```
 
 ### Form Wrap
@@ -387,3 +387,13 @@ MIT. Please see the [license file](license.md) for more information.
 [link-travis]: https://travis-ci.org/spindogs/laravel-spin-forms
 [link-author]: https://github.com/spindogs
 [link-contributors]: ../../contributors
+
+## Supported Versions
+
+Versions will be supported for a limited amount of time.
+
+| Version | Laravel Version |
+| ---- | ---- |
+| 1 | 7/8 |
+| 2 | 7/8/9 |
+| 3 | 10 |
