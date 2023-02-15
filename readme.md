@@ -99,9 +99,9 @@ Options
 This takes a slot as the entry for the button content.
 
 ```blade
-<x-button type="submit">
+<x-form-button type="submit">
 Submit Form
-</x-button>
+</x-form-button>
 ```
 
 ### Form Wrap
